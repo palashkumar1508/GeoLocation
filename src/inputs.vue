@@ -26,18 +26,8 @@ let lat = ref(null)
 let lon = ref(null)
 let res = ref('')
 
-/*
-onMounted(()=>{
-    axios.get(`https://nominatim.openstreetmap.org/search.php?q=${lat.value}%2C+${lon.value}&format=jsonv2`).then((response)=>{
-        posts.value = response.data
-    })
-})
-*/
+
 async function getLoc (){
-    // const response = await fetch(`https://nominatim.openstreetmap.org/search.php?q=${lat.value}%2C+${lon.value}&format=jsonv2`)
-    // const respondJSON = await response.json();
-    // console.log(respondJSON)
-    // res.value = respondJSON[0].display_name
     axios.get(`https://nominatim.openstreetmap.org/search.php?q=${lat.value}%2C+${lon.value}&format=jsonv2`).then((response)=>{
         res.value = response.data[0].display_name
     })
